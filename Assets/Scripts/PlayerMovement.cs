@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
+    EntityStatus entityStatus;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        entityStatus = GetComponent<EntityStatus>();
     }
 
     void FixedUpdate()
@@ -20,6 +22,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
 
-        rb.AddForce(new Vector2(horizontal * 1200 * Time.deltaTime, transform.position.y));
+        rb.AddForce(new Vector2(horizontal * entityStatus.moveSpeed * Time.deltaTime, 0));
     }
 }
