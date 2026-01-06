@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7d230f776c8bb4b9db6690275df72a, type: 3}
+  m_Name: Wave8
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 6781653019884793314, guid: 17f1def8881ccbf4d9d74331e9868c95, type: 3}
+  - {fileID: 6781653019884793314, guid: 9ab4a0935c6c1894d8cb4f92e6012e1f, type: 3}
+  enemyQuantities: 0a0000000a000000

@@ -5,10 +5,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public int damage;
+    public bool playerProj;
+    public GameObject owner;
 
     void Start()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 10f);
     }
 
     void Update()
@@ -18,7 +20,13 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && playerProj)
+        {
+            collision.gameObject.GetComponent<EntityStatus>().TakeDamage(damage);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player") && !playerProj)
         {
             collision.gameObject.GetComponent<EntityStatus>().TakeDamage(damage);
             Destroy(gameObject);

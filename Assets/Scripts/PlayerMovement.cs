@@ -22,6 +22,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
 
-        rb.AddForce(new Vector2(horizontal * entityStatus.moveSpeed * Time.deltaTime, 0));
+        rb.AddForce(new Vector2(horizontal * (entityStatus.moveSpeed + entityStatus.bonusMoveSpeed) * Time.deltaTime, 0));
     }
 }

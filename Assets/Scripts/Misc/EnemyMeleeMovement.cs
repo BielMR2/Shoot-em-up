@@ -10,13 +10,14 @@ public class EnemyMeleeMovement : MonoBehaviour
 
     float cooldown_;
     bool canChangePosition;
-    bool moveRight = true;
+    bool moveRight;
 
     EntityStatus entityStatus;
 
     void Start()
     {
         entityStatus = GetComponent<EntityStatus>();
+        moveRight = Random.value > 0.5f;
     }
 
     void FixedUpdate()

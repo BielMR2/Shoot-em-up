@@ -21,8 +21,10 @@ public class PlayerAttack : MonoBehaviour
         if (canAttack && Input.GetKey(KeyCode.Space))
         {
             GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
-            proj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, entityStatus.projSpeed);
-            proj.GetComponent<Projectile>().damage = entityStatus.atkDamage;
+            proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, entityStatus.projSpeed), ForceMode2D.Impulse);
+            Projectile projectileScript = proj.GetComponent<Projectile>();
+            projectileScript.playerProj = true;
+            projectileScript.damage = entityStatus.atkDamage;
 
             canAttack = false;
             cooldown = 0;
@@ -34,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Cooldown()
     {
-        if(cooldown > entityStatus.atkSpeed)
+        if(cooldown > entityStatus.atkSpeed - entityStatus.bonusAtkSpeed)
         {
             canAttack = true;
         } else
