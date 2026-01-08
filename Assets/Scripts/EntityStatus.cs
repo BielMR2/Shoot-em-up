@@ -24,6 +24,7 @@ public class EntityStatus : MonoBehaviour
     public int baseProjSpeed;
 
     public int points;
+    public int hiScorePoints;
 
     GameObject player;
 
@@ -38,11 +39,11 @@ public class EntityStatus : MonoBehaviour
         projSpeed = baseProjSpeed;
 
         player = GameObject.FindGameObjectWithTag("Player");
-    }
 
-    void Update()
-    {
-        
+        if (gameObject.CompareTag("Player"))
+        {
+            points = 0;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -54,28 +55,37 @@ public class EntityStatus : MonoBehaviour
 
         hp -= damage;
 
-        Death();
+        HUDManager.Instance.UpdateHearts();
+
+        if(hp <= 0)
+        {
+            Death();
+        }
     }
 
     void Death()
     {
-        if(hp <= 0)
+        if (gameObject.CompareTag("Enemy"))
         {
-            if (gameObject.CompareTag("Enemy"))
+            DropPowerUp();
+            player.GetComponent<EntityStatus>().AddPoints(points);
+            HUDManager.Instance.SetScorePoints(player.GetComponent<EntityStatus>().points);
+            if(player.GetComponent<EntityStatus>().points > player.GetComponent<EntityStatus>().hiScorePoints)
             {
-                DropPowerUp();
-                player.GetComponent<EntityStatus>().AddPoints(points);
-                WaveManager.Instance.enemyAlive--;
+                player.GetComponent<EntityStatus>().hiScorePoints = player.GetComponent<EntityStatus>().points;
+                HUDManager.Instance.SetHighScorePoints(player.GetComponent<EntityStatus>().hiScorePoints);
             }
-
-            if(gameObject.CompareTag("Player"))
-            {
-                Time.timeScale = 0;
-                HUDManager.Instance.gameOverScreen.SetActive(true);
-            }
-
-            Destroy(gameObject);
+            WaveManager.Instance.enemyAlive--;
         }
+
+        if(gameObject.CompareTag("Player"))
+        {
+            Time.timeScale = 0;
+            HUDManager.Instance.gameOverScreen.SetActive(true);
+            return;
+        }
+
+        Destroy(gameObject);
     }
 
     void AddPoints(int value)

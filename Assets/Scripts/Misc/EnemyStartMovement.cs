@@ -41,7 +41,26 @@ public class EnemyStartMovement : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
+            EnableEnemyAttack();
             this.enabled = false;
+        }
+    }
+
+    void EnableEnemyAttack()
+    {
+        if (gameObject.GetComponent<EnemyRangedAtttack>())
+        {
+            gameObject.GetComponent<EnemyRangedAtttack>().enabled = true;
+        }
+
+        if (gameObject.GetComponent<EnemyRangedComplexAtttack>())
+        {
+            gameObject.GetComponent<EnemyRangedComplexAtttack>().enabled = true;
+        }
+
+        if (gameObject.GetComponent<BossAttack>())
+        {
+            gameObject.GetComponent<BossAttack>().enabled = true;
         }
     }
 }

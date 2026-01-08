@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && playerProj)
+        if (collision.gameObject.CompareTag("Enemy") && playerProj || collision.gameObject.CompareTag("Boss") && playerProj)
         {
             collision.gameObject.GetComponent<EntityStatus>().TakeDamage(damage);
             Destroy(gameObject);

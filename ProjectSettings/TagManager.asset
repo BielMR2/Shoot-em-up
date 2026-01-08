@@ -8,6 +8,8 @@ TagManager:
   - Wave
   - SpawnPoint
   - MinSpawn
+  - BossSpawn
+  - Boss
   layers:
   - Default
   - TransparentFX

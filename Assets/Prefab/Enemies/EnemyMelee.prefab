@@ -147,8 +147,9 @@ MonoBehaviour:
   projSpeed: 0
   baseProjSpeed: 0
   points: 20
+  hiScorePoints: 0
   powerUpsDrop:
-  - {fileID: 6698307345330141175, guid: ffb4d90bc7a89fe4080364a1bb832ce0, type: 3}
+  - {fileID: 7486023982391102456, guid: 1744d6bd00191eb4e9cf9ffc59518f45, type: 3}
 --- !u!114 &-1244991376650500716
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -147,6 +147,7 @@ MonoBehaviour:
   projSpeed: 0
   baseProjSpeed: 3
   points: 100
+  hiScorePoints: 0
   powerUpsDrop:
   - {fileID: 5177720099438389525, guid: 21daa760d2681fe4281bd2b10e8bb24c, type: 3}
 --- !u!114 &6579247455081697294
@@ -156,12 +157,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5641596461542289792}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33070713a8d64ca45970553a445bba57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8959484576855982244, guid: f4a59631204874543bdda662eec58e2a, type: 3}
+  projectile: {fileID: 8959484576855982244, guid: a62ff13d265d6f04493badd00b1dc545, type: 3}
 --- !u!114 &2311730663620965939
 MonoBehaviour:
   m_ObjectHideFlags: 0
