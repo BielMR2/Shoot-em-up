@@ -11,6 +11,10 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 10f);
+        if (!playerProj)
+        {
+            GetComponent<SpriteRenderer>().flipY = true;
+        }
     }
 
     void Update()

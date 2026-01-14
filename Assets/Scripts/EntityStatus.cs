@@ -27,6 +27,7 @@ public class EntityStatus : MonoBehaviour
     public int hiScorePoints;
 
     GameObject player;
+    Animator animator;
 
     public List<GameObject> powerUpsDrop;
 
@@ -39,6 +40,7 @@ public class EntityStatus : MonoBehaviour
         projSpeed = baseProjSpeed;
 
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
 
         if (gameObject.CompareTag("Player"))
         {
@@ -67,7 +69,9 @@ public class EntityStatus : MonoBehaviour
     {
         if (gameObject.CompareTag("Enemy"))
         {
+            animator.Play("Death");
             DropPowerUp();
+
             player.GetComponent<EntityStatus>().AddPoints(points);
             HUDManager.Instance.SetScorePoints(player.GetComponent<EntityStatus>().points);
             if(player.GetComponent<EntityStatus>().points > player.GetComponent<EntityStatus>().hiScorePoints)
@@ -75,6 +79,7 @@ public class EntityStatus : MonoBehaviour
                 player.GetComponent<EntityStatus>().hiScorePoints = player.GetComponent<EntityStatus>().points;
                 HUDManager.Instance.SetHighScorePoints(player.GetComponent<EntityStatus>().hiScorePoints);
             }
+
             WaveManager.Instance.enemyAlive--;
         }
 
@@ -85,7 +90,7 @@ public class EntityStatus : MonoBehaviour
             return;
         }
 
-        Destroy(gameObject);
+        StartCoroutine(AnimationDeath());
     }
 
     void AddPoints(int value)
@@ -101,5 +106,12 @@ public class EntityStatus : MonoBehaviour
             GameObject powerUp = powerUpsDrop[Random.Range(0, powerUpsDrop.Count)];
             Instantiate(powerUp, transform.position, Quaternion.identity);
         }
+    }
+
+    IEnumerator AnimationDeath()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        Destroy(gameObject);
     }
 }

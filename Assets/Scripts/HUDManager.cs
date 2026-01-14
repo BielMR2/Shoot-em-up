@@ -33,6 +33,7 @@ public class HUDManager : MonoBehaviour
         playerStatus = player.GetComponent<EntityStatus>();
         UpdateHearts();
         SetHighScorePoints(PlayerPrefs.GetInt("HighScore", 0));
+        SetScorePoints(playerStatus.points);
     }
 
     void Update()
