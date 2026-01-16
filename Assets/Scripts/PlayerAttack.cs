@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject projectile;
+    public AudioSource shootSound;
 
     bool canAttack = false;
     float cooldown;
@@ -25,6 +26,9 @@ public class PlayerAttack : MonoBehaviour
             Projectile projectileScript = proj.GetComponent<Projectile>();
             projectileScript.playerProj = true;
             projectileScript.damage = entityStatus.atkDamage;
+
+            shootSound.pitch = 1;
+            shootSound.PlayOneShot(entityStatus.audioAttack);
 
             canAttack = false;
             cooldown = 0;

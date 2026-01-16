@@ -26,6 +26,9 @@ public class EntityStatus : MonoBehaviour
     public int points;
     public int hiScorePoints;
 
+
+    public AudioClip audioAttack;
+
     GameObject player;
     Animator animator;
 

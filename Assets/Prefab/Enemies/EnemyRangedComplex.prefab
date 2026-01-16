@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 2311730663620965939}
   - component: {fileID: 6689929578302228361}
   - component: {fileID: 2091038493772359200}
+  - component: {fileID: -9146100527437411697}
   m_Layer: 0
   m_Name: EnemyRangedComplex
   m_TagString: Enemy
@@ -148,6 +149,7 @@ MonoBehaviour:
   baseProjSpeed: 3
   points: 100
   hiScorePoints: 0
+  audioAttack: {fileID: 0}
   powerUpsDrop:
   - {fileID: 5177720099438389525, guid: 21daa760d2681fe4281bd2b10e8bb24c, type: 3}
 --- !u!114 &6579247455081697294
@@ -247,3 +249,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &-9146100527437411697
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5641596461542289792}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be740a2fe53bb264f9615b420da6d5bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
